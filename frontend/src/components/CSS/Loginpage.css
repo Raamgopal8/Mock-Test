@@ -1,0 +1,121 @@
+.loginpage {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toggle-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.toggle-button-login,
+.toggle-button-signup {
+    width: 45%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.toggle-button-login:hover,
+.toggle-button-signup:hover {
+    background-color: #3e8e41;
+}
+
+.toggle-button-login.active,
+.toggle-button-signup.active {
+    background-color: #3e8e41;
+}
+
+.inputs {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.input img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.input input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.forget-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forget-password span {
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.submit-container {
+    text-align: center;
+    width: 100%;
+}
+
+.submit {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #3e8e41;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 250px;
+    }
+    .toggle-button-login,
+    .toggle-button-signup {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

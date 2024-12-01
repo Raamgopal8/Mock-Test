@@ -1,0 +1,41 @@
+.main{
+    display:flex;    
+    height: 100vh;
+    background-image: url('../../assests/ksrbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.main-images{
+    flex:1;
+    display : flex;
+    align-items:left;
+    justify-content: right;
+    height: 84vh;
+}
+.main-images img{
+    width: 100%;
+    height: auto;
+}
+.menu-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    padding: 20px;
+    background: #007BFF;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6,1fr); /* Creates 3 equal columns */
+    gap: 50px; /* Space between grid items */
+    padding: 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    background-color: #f0f0f0; /* Background color for grid items */
+    border: 1px solid #ccc; /* Border for grid items */
+    padding: 20px; /* Padding inside grid items */
+    text-align: center; /* Center text inside grid items */
+    width: 100%;
+}

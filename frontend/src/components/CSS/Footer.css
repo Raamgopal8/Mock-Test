@@ -1,0 +1,14 @@
+.footer{
+  display: flex;
+  justify-content: center;
+  background: #555;
+  color: whitesmoke;
+     
+}
+.footer_container{
+   text-align: center;
+   
+}
+.footer_container p{
+    font-weight: 500%;
+}
