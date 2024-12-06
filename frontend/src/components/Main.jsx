@@ -10,24 +10,32 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import './CSS/Main.css'
-import { Link } from 'react-router-dom';
+import './CSS/Main.css';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  const navigate = useNavigate();
     const [state, setState] = React.useState({
         top: false,
         left: false,
         bottom: false,
         right: false,
       });
-
+           
       const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
-        }
+      }
     
         setState({ ...state, [anchor]: open });
       };
+
+      const handleLinkClick = (path) => {
+        
+        navigate(path); 
+        toggleDrawer("left", false)(); 
+         };
+
       const list = (anchor) => (
         <Box
           sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -38,7 +46,8 @@ const Main = () => {
           <List>
             {['Profile'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                
+                <ListItemButton onClick={() => handleLinkClick("/profile")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -49,35 +58,35 @@ const Main = () => {
           </List>
           <Divider/>
           <List>
-            {['Dashboard'].map((text, index) => (
+            {['Add Questions'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+               <ListItemButton onClick={() => handleLinkClick("/AddQuestion")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
-              </ListItem>
+                </ListItem>
             ))}
           </List>
           <Divider/>
           <List>
             {['Courses'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => handleLinkClick("/Courses")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
-              </ListItem>
+                </ListItem>
             ))}
           </List>
           <Divider/>
           <List>
             {['Question Bank'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                 <ListItemButton onClick={() => handleLinkClick("/QuestionBank")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -90,7 +99,7 @@ const Main = () => {
           <List>
             {['Exam paper'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                 <ListItemButton onClick={() => handleLinkClick("/ExamPaper")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -103,7 +112,7 @@ const Main = () => {
           <List>
             {['Take Test'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => handleLinkClick("/TakeTest")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -112,25 +121,11 @@ const Main = () => {
               </ListItem>
             ))}
           </List>
-          <List>
-            {['Login'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <Link to="/Login">
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-                </Link>
-                </ListItem>
-            ))}
-          </List>
           <Divider/>
           <List>
             {['Settings'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => handleLinkClick("/settings")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -143,7 +138,7 @@ const Main = () => {
       );
 
   return (
-    <div className='main'>
+     <div className='main'>
       <div className='menu-container'> 
        <MenuIcon 
         onClick={toggleDrawer("left",true)
@@ -165,10 +160,9 @@ const Main = () => {
                 <div className="grid-item">UPSC(ALL GROUPS)</div>
                 <div className="grid-item">BANKING</div>
                 <div className="grid-item">RAILWAYS</div>
-              
-      </div>
-    </div>
-  );
+        </div>
+       </div>
+    );
 }
 
 export default Main
