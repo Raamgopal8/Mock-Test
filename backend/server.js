@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const app = express();
+const examRoutes = require("./routes/exams");
 app.use(cors());
 app.use(express.json());
 require('dotenv').config();
@@ -69,7 +70,26 @@ app.post('/api/login', async (req, res) => {
       // Protected route example
       app.get('/protected', authMiddleware, (req, res) => {
         res.send('This is a protected route');
-      });   
+      }); 
+      
+      // Sample Data
+const exams = [
+  { id: 1, title: "Math Exam", date: "2024-12-15" },
+  { id: 2, title: "Science Exam", date: "2024-12-20" },
+];
+
+// Routes
+app.get("/api/student/exams", (req, res) => {
+  res.json(exams);
+});
+
+app.post("/api/admin/create-exam", (req, res) => {
+  const { title, date } = req.body;
+  exams.push({ id: exams.length + 1, title, date });
+  res.json({ message: "Exam created successfully" });
+});
+
+app.use("/api/exams", examRoutes);
 
 app.listen(5000, () => {
     console.log('Server running on http://localhost:5000');

@@ -3,8 +3,8 @@
     justify-content: space-between; /* Space between title and search bar */
     align-items: center; /* Center items vertically */
     padding: 10px 20px; /* Add padding */
-    background-color: #007BFF; /* Background color */
-    color: white; /* Text color */
+    background-color: whitesmoke; /* Background color */
+    color: black; /* Text color */
 }
 
 .navbar-title h2 {

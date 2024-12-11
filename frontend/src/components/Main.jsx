@@ -12,6 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import './CSS/Main.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -44,10 +45,10 @@ const Main = () => {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
-            {['Profile'].map((text, index) => (
+            {['Student'].map((text, index) => (
               <ListItem key={text} disablePadding>
                 
-                <ListItemButton onClick={() => handleLinkClick("/profile")}>
+                <ListItemButton onClick={() => handleLinkClick("/student")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -58,9 +59,9 @@ const Main = () => {
           </List>
           <Divider/>
           <List>
-            {['Add Questions'].map((text, index) => (
+            {['Admin'].map((text, index) => (
               <ListItem key={text} disablePadding>
-               <ListItemButton onClick={() => handleLinkClick("/AddQuestion")}>
+               <ListItemButton onClick={() => handleLinkClick("/admin")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -97,22 +98,9 @@ const Main = () => {
           </List>
           <Divider/>
           <List>
-            {['Exam paper'].map((text, index) => (
+            {['ExamPage'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                 <ListItemButton onClick={() => handleLinkClick("/ExamPaper")}>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider/>
-          <List>
-            {['Take Test'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleLinkClick("/TakeTest")}>
+                 <ListItemButton onClick={() => handleLinkClick("/exam")}>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -155,11 +143,11 @@ const Main = () => {
      </div>
      
       <div className="grid-container">
-      <div className="grid-item">JEE</div>
-                <div className="grid-item">GATE</div>
-                <div className="grid-item">UPSC(ALL GROUPS)</div>
-                <div className="grid-item">BANKING</div>
-                <div className="grid-item">RAILWAYS</div>
+                <Link to = "/Courses" ><div className="grid-item">JEE</div></Link>
+                <Link to = "/Courses" ><div className="grid-item">GATE</div></Link>
+                <Link to = "/Courses" ><div className="grid-item">UPSC(ALL GROUPS)</div></Link>
+                <Link to = "/Courses" ><div className="grid-item">BANKING</div></Link>
+                <Link to = "/Courses" ><div className="grid-item">RAILWAYS</div></Link>
         </div>
        </div>
     );

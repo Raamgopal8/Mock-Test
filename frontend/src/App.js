@@ -3,8 +3,9 @@ import React,{ useEffect, useState } from 'react';
 import {BrowserRouter, Routes, Route , Navigate} from 'react-router-dom'; 
 import Home from './pages/Home';
 import Loginpage from './components/Loginpage';
-import Profile from './pages/Profile';
-import AddQuestion from './pages/Addquestion';
+import StudentDashboard from './pages/StudentDashboard';
+import AdminDashboard from './pages/Admindashboard';
+import ExamPage from './pages/ExamPage';
 import Courses from './pages/Courses';
 
 function App() {
@@ -25,8 +26,9 @@ function App() {
         <Routes>
             <Route path ='/' element ={isLoggedIn ? <Home /> : <Navigate to="/login" />} />            
             <Route path='/login' element = {<Loginpage/>}/> 
-            <Route path='/profile' element= {<Profile />} />
-            <Route path='/AddQuestion' element = {<AddQuestion/>}/>
+            <Route path="/student" element={<StudentDashboard/>} />
+            <Route path="/admin" element={<AdminDashboard/>} />
+            <Route path='/exam' element={<ExamPage/>}/>
             <Route path='/courses' element= {<Courses/>} />
         </Routes>
       
